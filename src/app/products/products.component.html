@@ -1,0 +1,19 @@
+<h1 class="title">{{title}}</h1>
+<input type="number" name="price" [(ngModel)]="priceMax">
+<div class="row">
+<div class="col-md-4" *ngFor="let p of listProduct, let i=index">
+<div class="card" style="width: 18rem;">
+  <div *ngIf="p.price < priceMax || priceMax==null">
+    <img class="card-img-top" src="https://cdn.store-factory.com/www.patoutatis.com/content/product_8203135s.jpg?v=1522508752" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{p.title}}</h5>
+      <p class="card-text">Price:{{p.price}}</p>
+      <p class="card-text">Quantity:{{p.quantity}}</p>
+      <p class="card-text">like:{{p.like}}</p>
+      <button href="#" class="btn btn-primary" (click)="buy(i)" [disabled]="p.quantity==0">buy</button>
+      <button href="#" class="btn btn-primary" (click)="like(i)">like</button>
+      <button href="#" class="btn btn-info" [routerLink]="['/Products',p.id]" >details</button>
+    </div>
+  </div>
+  </div>
+  

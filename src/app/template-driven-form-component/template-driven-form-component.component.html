@@ -1,0 +1,51 @@
+<h2>Informations générales</h2>
+    <form #f="ngForm">
+    <div class="form-group">
+      <label >Nom</label>
+      <input type="text" class="form-control" name="nom"  placeholder="Enter nom" [(ngModel)]="user.nom" required #nom="ngModel">
+      <div class="alert alert-danger" *ngIf="nom.invalid && nom.touched">
+        <div *ngIf="nom.errors?.['required']" > nom is requiered </div>
+      </div>
+      
+    </div>
+    <div class="form-group">
+        <label >Email</label>
+        <input type="email" class="form-control" name="email"  placeholder="Enter email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" [(ngModel)]="user.email"  #email="ngModel">
+        <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+            <div *ngIf="email.errors?.['required']" > email is requiered </div>
+            <div *ngIf="email.errors?.['pattern']" > format incorrect </div>
+        </div>
+      </div>
+      <h2>Informations de payement </h2>
+    <form #f="ngForm">
+      <div class="form-group">
+        <label >Type de carte</label>
+        <input type="text" class="form-control" name="type de carte"  placeholder="Enter type" [(ngModel)]="carte.type" required #type="ngModel">
+        <div class="alert alert-danger" *ngIf="type.invalid && type.touched">
+            <div *ngIf="type.errors?.['required']" > type is requiered </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Numero carte</label>
+        <input type="number" class="form-control" name="numero"  placeholder="Enter numero" [(ngModel)]="carte.numero" required #numero="ngModel" max="16">
+        <div class="alert alert-danger" *ngIf="numero.invalid && numero.touched">
+            <div *ngIf="numero.errors?.['required']" > numero is requiered </div>
+            <div *ngIf="numero.errors?.['max']" > numero  contient 16 chiffres </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Date expiration</label>
+        <input type="date" class="form-control" name="date expiration"  placeholder="Enter date" [(ngModel)]="carte.date" required #date="ngModel">
+        <div class="alert alert-danger" *ngIf="date.invalid && date.touched">
+            <div *ngIf="date.errors?.['required']" > date is requiered </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label >Code</label>
+        <input type="text" class="form-control" name="code"  placeholder="Enter code">
+      
+      </div>
+    </form>
+    <button type="Ajouter" class="btn btn-primary">Ajouter</button>
+  </form>
+  
