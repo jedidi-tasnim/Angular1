@@ -1,5 +1,5 @@
 <h2>Informations générales</h2>
-    <form #f="ngForm">
+    <form #f1="ngForm">
     <div class="form-group">
       <label >Nom</label>
       <input type="text" class="form-control" name="nom"  placeholder="Enter nom" [(ngModel)]="user.nom" required #nom="ngModel">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <h2>Informations de payement </h2>
-    <form #f="ngForm">
+    <form #f2="ngForm">
       <div class="form-group">
         <label >Type de carte</label>
         <input type="text" class="form-control" name="type de carte"  placeholder="Enter type" [(ngModel)]="carte.type" required #type="ngModel">
@@ -46,6 +46,6 @@
       
       </div>
     </form>
-    <button type="Ajouter" class="btn btn-primary">Ajouter</button>
+    <button type="Ajouter" class="btn btn-primary" [disabled]="f2.invalid" >Ajouter</button>
   </form>
   
